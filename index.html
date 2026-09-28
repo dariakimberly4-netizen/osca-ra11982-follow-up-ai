@@ -26,7 +26,7 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:12px;padding:13px 18px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:var(--navy);color:#fff}.secondary{background:#e8edf1;color:var(--navy)}
 .status{margin-top:18px;padding:16px;border-radius:14px;background:#fff;border-left:6px solid var(--gold);display:none}.status.show{display:block}.status h4{margin:0 0 6px}.timeline{display:grid;gap:10px;margin-top:12px}.step{display:flex;gap:12px;align-items:flex-start;padding:10px;background:#fff;border-radius:12px}.dot{width:14px;height:14px;border-radius:50%;background:#cbd5e1;margin-top:4px}.done .dot{background:var(--ok)}.current .dot{background:var(--gold)}
 .small{font-size:13px;color:var(--muted)}.notice{margin-top:18px;font-size:13px;color:var(--muted);text-align:center}
-.back{margin-bottom:12px}
+.back{margin-bottom:12px}.staffLink{position:absolute;bottom:18%;right:15%;z-index:4;border:1px solid #cbd5e1;background:#f8fafc;color:var(--navy);border-radius:999px;padding:9px 13px;font-weight:800;cursor:pointer;font-size:12px}.staffGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.badge{display:inline-block;padding:7px 10px;border-radius:999px;background:#fff;border:1px solid #dbe3e8;font-weight:800;color:var(--navy)}.record{margin-top:14px;background:#fff;border:1px solid #dbe3e8;border-radius:14px;padding:14px}.record p{margin:6px 0}@media(max-width:600px){.staffGrid{grid-template-columns:1fr}.staffLink{bottom:15%;right:8%}}
 @media(max-width:700px){.shell{padding:16px;border-radius:18px}.orbit{width:96vw;max-width:560px}.mod{width:33%;min-height:80px;font-size:13px;padding:10px}.m1{left:33.5%}.m3{left:33.5%}.m2{right:0}.m4{left:0}.center{width:41%;padding:12px}.ring{inset:11%}}
 @media(max-width:460px){.orbit{aspect-ratio:1/1}.mod{width:36%;min-height:74px;border-radius:18px}.m1,.m3{left:32%}.center{width:43%}.center strong{font-size:17px}.center span{font-size:11px}}
 </style>
@@ -50,6 +50,7 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 <button class="mod m2" onclick="openPanel('askPanel')">ASK AI</button>
 <button class="mod m3" onclick="openPanel('historyPanel')">FOLLOW-UP HISTORY</button>
 <button class="mod m4" onclick="openPanel('contactPanel')">CONTACT OSCA</button>
+<button class="staffLink" onclick="openPanel('staffPanel')">STAFF LOGIN</button>
 <div class="center"><div><strong>AI RECEPTIONIST</strong><span>RA 11982 Follow-Up Only</span></div></div>
 </div>
 <div class="notice">For privacy, the system does not display applicant records using a name alone.</div>
@@ -100,6 +101,34 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 </div>
 </div>
 
+
+<div id="staffPanel" class="panel">
+<button class="btn secondary back" onclick="goHome()">← Back to Orbit</button>
+<div class="card" id="staffLoginBox">
+<h3>Authorized OSCA Staff</h3>
+<p class="small">Demo staff workspace. Do not place real applicant data in this public GitHub version.</p>
+<label>Staff ID</label><input id="staffId" placeholder="OSCA Staff ID">
+<label>Demo PIN</label><input id="staffPin" type="password" placeholder="Enter PIN">
+<div class="actions"><button class="btn primary" onclick="staffLogin()">Login</button></div>
+<div id="loginMsg" class="status"></div>
+</div>
+<div class="card" id="staffWorkspace" style="display:none">
+<h3>RA 11982 Follow-Up — Staff Workspace</h3>
+<div class="staffGrid">
+<div><label>Reference Number</label><input id="sref" placeholder="RA11982-2026-001"></div>
+<div><label>Applicant Name</label><input id="sname" placeholder="Sample applicant"></div>
+<div><label>Date of Birth</label><input id="sdob" type="date"></div>
+<div><label>Milestone</label><select id="sage"><option>80</option><option>85</option><option>90</option><option>95</option><option>100</option></select></div>
+<div><label>Status</label><select id="sstatus"><option>RECEIVED</option><option>UNDER OSCA VERIFICATION</option><option>FOR COMPLETION</option><option>VERIFIED</option><option>ENDORSED</option><option>UNDER PROCESSING</option><option>FOR PAYOUT</option><option>RELEASED</option></select></div>
+<div><label>Date Submitted</label><input id="ssubmitted" type="date"></div>
+</div>
+<label>Public Follow-Up Note</label><textarea id="snote" rows="3" placeholder="Short applicant-safe update"></textarea>
+<div class="actions"><button class="btn primary" onclick="saveDemoRecord()">Save Demo Record</button><button class="btn secondary" onclick="staffLogout()">Logout</button></div>
+<div id="saveMsg" class="status"></div>
+<div id="records"></div>
+</div>
+</div>
+
 <div id="contactPanel" class="panel">
 <button class="btn secondary back" onclick="goHome()">← Back to Orbit</button>
 <div class="card">
@@ -125,6 +154,27 @@ function goHome(){
  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
  document.getElementById('home').style.display='block';
 }
+
+const STORE='osca11982_demo_records';
+function getRecords(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}}
+function staffLogin(){
+ const id=document.getElementById('staffId').value.trim(),pin=document.getElementById('staffPin').value;
+ const m=document.getElementById('loginMsg');m.classList.add('show');
+ if(id && pin==='11982'){document.getElementById('staffLoginBox').style.display='none';document.getElementById('staffWorkspace').style.display='block';renderRecords();m.classList.remove('show')}
+ else m.innerHTML='<b>Demo login:</b> enter any Staff ID and PIN <b>11982</b>. Replace this with secure authentication before real deployment.';
+}
+function staffLogout(){document.getElementById('staffWorkspace').style.display='none';document.getElementById('staffLoginBox').style.display='block'}
+function saveDemoRecord(){
+ const rec={ref:document.getElementById('sref').value.trim().toUpperCase(),name:document.getElementById('sname').value.trim(),dob:document.getElementById('sdob').value,age:document.getElementById('sage').value,status:document.getElementById('sstatus').value,submitted:document.getElementById('ssubmitted').value,note:document.getElementById('snote').value.trim(),updated:new Date().toLocaleString()};
+ const m=document.getElementById('saveMsg');m.classList.add('show');
+ if(!rec.ref||!rec.name||!rec.dob){m.textContent='Reference number, applicant name, and date of birth are required.';return}
+ let a=getRecords();const i=a.findIndex(x=>x.ref===rec.ref);if(i>=0)a[i]=rec;else a.push(rec);localStorage.setItem(STORE,JSON.stringify(a));m.textContent='Demo record saved on this device only.';renderRecords();
+}
+function renderRecords(){
+ const a=getRecords(),el=document.getElementById('records');el.innerHTML=a.length?'<h3>Demo Records</h3>':'<p class="small">No demo records yet.</p>';
+ a.slice().reverse().forEach(r=>{const d=document.createElement('div');d.className='record';d.innerHTML='<span class="badge">'+esc(r.status)+'</span><p><b>'+esc(r.ref)+'</b> — '+esc(r.name)+'</p><p class="small">Milestone: '+esc(r.age)+' • Updated: '+esc(r.updated)+'</p>';el.appendChild(d)})
+}
+function esc(s){return String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
 function checkStatus(){
  const ref=document.getElementById('ref').value.trim();
  const dob=document.getElementById('dob').value;
@@ -133,8 +183,10 @@ function checkStatus(){
  const text=document.getElementById('statusText');
  box.classList.add('show');
  if(!ref||!dob){title.textContent='Please complete the verification fields.';text.textContent='Enter both the reference number and date of birth.';return;}
- title.textContent='Status: ENDORSED / UNDER PROCESSING';
- text.innerHTML='Your application has passed the OSCA verification stage and is currently marked for further processing. This sample website does not connect to a live OSCA database yet.';
+ const rec=getRecords().find(x=>x.ref===ref.toUpperCase()&&x.dob===dob);
+ if(!rec){title.textContent='No matching demo record found';text.textContent='Please check the reference number and date of birth, or contact OSCA staff. The public demo does not connect to the official OSCA database.';return;}
+ title.textContent='Status: '+rec.status;
+ text.innerHTML='<b>'+esc(rec.name)+'</b><br>Milestone: '+esc(rec.age)+'<br>Date submitted: '+esc(rec.submitted||'Not recorded')+'<br>Last updated: '+esc(rec.updated)+(rec.note?'<br><br><b>Follow-up note:</b> '+esc(rec.note):'');
 }
 function answerAI(){
  const q=document.getElementById('question').value.trim().toLowerCase();
