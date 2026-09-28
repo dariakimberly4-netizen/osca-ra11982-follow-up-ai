@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OSCA RA 11982 Follow-Up AI</title>
+<style>
+:root{--navy:#15324b;--gold:#c7a55b;--cream:#f8f5ee;--ink:#1e2933;--muted:#6b7280;--white:#fff;--ok:#2e7d32;--warn:#b7791f}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#f9f7f0,#eef2f5);color:var(--ink)}
+.app{min-height:100vh;display:flex;flex-direction:column}
+header{background:var(--navy);color:#fff;padding:16px 20px;border-bottom:4px solid var(--gold)}
+header h1{font-size:clamp(20px,3vw,32px);margin:0 0 4px}header p{margin:0;opacity:.88}
+main{flex:1;display:grid;place-items:center;padding:20px}
+.shell{width:min(1100px,100%);background:#fff;border-radius:24px;box-shadow:0 18px 50px rgba(21,50,75,.12);padding:24px;overflow:hidden}
+.hero{text-align:center;margin-bottom:20px}.hero h2{margin:0;font-size:clamp(24px,4vw,40px);color:var(--navy)}.hero p{font-size:clamp(16px,2.3vw,20px);color:var(--muted)}
+.orbit{position:relative;width:min(720px,92vw);aspect-ratio:1/1;margin:0 auto;display:grid;place-items:center}
+.ring{position:absolute;inset:9%;border:2px dashed rgba(21,50,75,.18);border-radius:50%}
+.center{width:38%;aspect-ratio:1/1;border-radius:50%;display:grid;place-items:center;text-align:center;background:var(--navy);color:#fff;border:7px solid #fff;box-shadow:0 0 0 3px var(--gold),0 18px 35px rgba(21,50,75,.25);padding:18px;z-index:2}
+.center strong{font-size:clamp(18px,3vw,30px);display:block}.center span{font-size:clamp(12px,1.6vw,17px);opacity:.9}
+.mod{position:absolute;width:29%;min-height:92px;border:none;border-radius:22px;background:#fff;color:var(--navy);box-shadow:0 12px 28px rgba(21,50,75,.15);font-weight:800;font-size:clamp(14px,2vw,20px);padding:14px;cursor:pointer;border:2px solid #e8edf1}
+.mod:hover,.mod:focus{transform:translateY(-2px);border-color:var(--gold);outline:none}
+.m1{top:2%;left:35.5%}.m2{right:1%;top:35%}.m3{bottom:2%;left:35.5%}.m4{left:1%;top:35%}
+.panel{display:none;margin-top:12px;border-top:1px solid #e5e7eb;padding-top:20px}.panel.active{display:block}
+.card{background:var(--cream);border-radius:18px;padding:20px;border:1px solid #e8e2d5}.card h3{margin-top:0;color:var(--navy)}
+label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{width:100%;padding:14px;border:1px solid #cbd5e1;border-radius:12px;font-size:16px;background:#fff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.btn{border:0;border-radius:12px;padding:13px 18px;font-size:16px;font-weight:800;cursor:pointer}.primary{background:var(--navy);color:#fff}.secondary{background:#e8edf1;color:var(--navy)}
+.status{margin-top:18px;padding:16px;border-radius:14px;background:#fff;border-left:6px solid var(--gold);display:none}.status.show{display:block}.status h4{margin:0 0 6px}.timeline{display:grid;gap:10px;margin-top:12px}.step{display:flex;gap:12px;align-items:flex-start;padding:10px;background:#fff;border-radius:12px}.dot{width:14px;height:14px;border-radius:50%;background:#cbd5e1;margin-top:4px}.done .dot{background:var(--ok)}.current .dot{background:var(--gold)}
+.small{font-size:13px;color:var(--muted)}.notice{margin-top:18px;font-size:13px;color:var(--muted);text-align:center}
+.back{margin-bottom:12px}
+@media(max-width:700px){.shell{padding:16px;border-radius:18px}.orbit{width:96vw;max-width:560px}.mod{width:33%;min-height:80px;font-size:13px;padding:10px}.m1{left:33.5%}.m3{left:33.5%}.m2{right:0}.m4{left:0}.center{width:41%;padding:12px}.ring{inset:11%}}
+@media(max-width:460px){.orbit{aspect-ratio:1/1}.mod{width:36%;min-height:74px;border-radius:18px}.m1,.m3{left:32%}.center{width:43%}.center strong{font-size:17px}.center span{font-size:11px}}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<h1>OSCA RA 11982 Follow-Up AI</h1>
+<p>Follow-up assistance for applications already submitted</p>
+</header>
+<main>
+<section class="shell">
+<div id="home">
+<div class="hero">
+<h2>RA 11982 Follow-Up Assistant</h2>
+<p>Check your status, understand the update, review follow-up history, or contact OSCA.</p>
+</div>
+<div class="orbit" aria-label="Follow-up modules">
+<div class="ring"></div>
+<button class="mod m1" onclick="openPanel('statusPanel')">CHECK STATUS</button>
+<button class="mod m2" onclick="openPanel('askPanel')">ASK AI</button>
+<button class="mod m3" onclick="openPanel('historyPanel')">FOLLOW-UP HISTORY</button>
+<button class="mod m4" onclick="openPanel('contactPanel')">CONTACT OSCA</button>
+<div class="center"><div><strong>AI RECEPTIONIST</strong><span>RA 11982 Follow-Up Only</span></div></div>
+</div>
+<div class="notice">For privacy, the system does not display applicant records using a name alone.</div>
+</div>
+
+<div id="statusPanel" class="panel">
+<button class="btn secondary back" onclick="goHome()">← Back to Orbit</button>
+<div class="card">
+<h3>Check Application Status</h3>
+<label>Reference / Application Number</label>
+<input id="ref" placeholder="Example: RA11982-2026-001">
+<label>Date of Birth</label>
+<input id="dob" type="date">
+<div class="actions"><button class="btn primary" onclick="checkStatus()">Check Status</button></div>
+<div id="statusResult" class="status">
+<h4 id="statusTitle"></h4><div id="statusText"></div>
+<div class="timeline">
+<div class="step done"><span class="dot"></span><div><b>Received</b><div class="small">Application recorded by OSCA</div></div></div>
+<div class="step done"><span class="dot"></span><div><b>OSCA Verification</b><div class="small">Initial checking completed</div></div></div>
+<div class="step current"><span class="dot"></span><div><b>Endorsed / Processing</b><div class="small">Current stage shown in this demo</div></div></div>
+<div class="step"><span class="dot"></span><div><b>For Payout / Released</b><div class="small">Shown once officially updated by staff</div></div></div>
+</div>
+</div>
+</div>
+</div>
+
+<div id="askPanel" class="panel">
+<button class="btn secondary back" onclick="goHome()">← Back to Orbit</button>
+<div class="card">
+<h3>Ask About My Status</h3>
+<label>Your question</label>
+<textarea id="question" rows="5" placeholder="Example: Ano po ibig sabihin ng endorsed to NCSC?"></textarea>
+<div class="actions"><button class="btn primary" onclick="answerAI()">Ask AI</button></div>
+<div id="aiAnswer" class="status"></div>
+</div>
+</div>
+
+<div id="historyPanel" class="panel">
+<button class="btn secondary back" onclick="goHome()">← Back to Orbit</button>
+<div class="card">
+<h3>Follow-Up History</h3>
+<p class="small">Sample view. Connect this later to the official OSCA application database or approved tracking sheet.</p>
+<div class="timeline">
+<div class="step done"><span class="dot"></span><div><b>September 3, 2026</b><div>Application received by OSCA.</div></div></div>
+<div class="step done"><span class="dot"></span><div><b>September 8, 2026</b><div>Initial verification completed.</div></div></div>
+<div class="step current"><span class="dot"></span><div><b>September 15, 2026</b><div>Application endorsed for further processing.</div></div></div>
+</div>
+</div>
+</div>
+
+<div id="contactPanel" class="panel">
+<button class="btn secondary back" onclick="goHome()">← Back to Orbit</button>
+<div class="card">
+<h3>Contact OSCA</h3>
+<p>If the application requires correction, document clarification, or staff verification, please contact the OSCA office directly.</p>
+<p><b>Office:</b> Office for Senior Citizens Affairs</p>
+<p><b>Service:</b> RA 11982 Follow-Up</p>
+<p class="small">Add the official OSCA phone number, email address, office hours, and location here before deployment.</p>
+</div>
+</div>
+
+</section>
+</main>
+</div>
+<script>
+function openPanel(id){
+ document.getElementById('home').style.display='none';
+ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+}
+function goHome(){
+ document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+ document.getElementById('home').style.display='block';
+}
+function checkStatus(){
+ const ref=document.getElementById('ref').value.trim();
+ const dob=document.getElementById('dob').value;
+ const box=document.getElementById('statusResult');
+ const title=document.getElementById('statusTitle');
+ const text=document.getElementById('statusText');
+ box.classList.add('show');
+ if(!ref||!dob){title.textContent='Please complete the verification fields.';text.textContent='Enter both the reference number and date of birth.';return;}
+ title.textContent='Status: ENDORSED / UNDER PROCESSING';
+ text.innerHTML='Your application has passed the OSCA verification stage and is currently marked for further processing. This sample website does not connect to a live OSCA database yet.';
+}
+function answerAI(){
+ const q=document.getElementById('question').value.trim().toLowerCase();
+ const box=document.getElementById('aiAnswer'); box.classList.add('show');
+ if(!q){box.innerHTML='<b>Please type your question.</b>';return;}
+ let a='Your application status should be confirmed using the official record. If the status is unclear or requires a decision, please contact OSCA staff.';
+ if(q.includes('endors')) a='“Endorsed” means the application has already moved forward from the OSCA verification stage for further processing. It does not automatically mean the cash gift has already been approved or released.';
+ else if(q.includes('payout')||q.includes('release')||q.includes('bayad')||q.includes('cash')) a='“For Payout” means the record has reached the payment preparation stage. “Released” means the payment has already been recorded as released. Final confirmation should come from the official OSCA/NCSC record.';
+ else if(q.includes('kulang')||q.includes('missing')||q.includes('document')) a='If the status says “For Completion” or indicates a missing requirement, please coordinate directly with OSCA staff so they can tell you exactly what needs to be corrected or submitted.';
+ box.innerHTML='<b>AI Follow-Up Assistant:</b><br><br>'+a;
+}
+</script>
+</body>
+</html>
