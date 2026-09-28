@@ -39,7 +39,15 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 </header>
 <main>
 <section class="shell">
-<div id="loginOrbit" class="hero" style="display:block"><h2>LOGIN</h2><p>OSCA RA 11982 Follow-Up AI Demo</p><div class="orbit loginOnly"><div class="ring"></div><button class="mod loginFollow" onclick="enterPublic()">FOLLOW-UP</button><button class="mod loginStaff" onclick="oneTapStaffFromOrbit()">STAFF</button><div class="center"><div><strong>LOGIN FIRST</strong><span>Choose Access</span></div></div></div></div>
+<div id="loginOrbit" class="hero">
+<h2>LOGIN</h2>
+<p>OSCA RA 11982 Follow-Up AI Demo</p>
+<div class="orbit loginOnly">
+  <div class="ring"></div>
+  <div class="center"><div><strong>LOGIN</strong><span>One-Tap Demo Access</span></div></div>
+  <button class="btn primary" onclick="loginFirst()" style="position:absolute;bottom:13%;left:50%;transform:translateX(-50%);z-index:5;min-width:190px">ONE-TAP LOGIN</button>
+</div>
+</div>
 <div id="home" style="display:none">
 <div class="hero">
 <h2>RA 11982 Follow-Up Assistant</h2>
@@ -144,8 +152,9 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 </main>
 </div>
 <script>
-function enterPublic(){document.getElementById('loginOrbit').style.display='none';document.getElementById('home').style.display='block';document.getElementById('appHeader').style.display='block'}
-function oneTapStaffFromOrbit(){document.getElementById('loginOrbit').style.display='none';document.getElementById('home').style.display='none';document.getElementById('appHeader').style.display='block';document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('staffPanel').classList.add('active');document.getElementById('staffId').value='DEMO STAFF';document.getElementById('staffPin').value='11982';staffLogin()}
+function enterPublic(){loginFirst()}
+function oneTapStaffFromOrbit(){loginFirst();openPanel('staffPanel');demoOneTap()}
+function loginFirst(){document.getElementById('loginOrbit').style.display='none';document.getElementById('home').style.display='block';document.getElementById('appHeader').style.display='block'}
 function openPanel(id){
  document.getElementById('home').style.display='none';
  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
