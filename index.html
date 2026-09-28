@@ -35,11 +35,12 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 <div class="app">
 <header>
 <h1>OSCA RA 11982 Follow-Up AI</h1>
-<p>Follow-up assistance for applications already submitted</p>
+<p>Follow-up assistance for applications already submitted</p><button onclick="goLogin()" style="margin-top:10px;background:transparent;border:1px solid rgba(255,255,255,.55);color:white;border-radius:999px;padding:7px 12px;cursor:pointer">Login Orbit</button>
 </header>
 <main>
 <section class="shell">
-<div id="home">
+<div id="loginOrbit" class="hero"><h2>OSCA RA 11982</h2><p>Select how you want to enter the demo.</p><div class="orbit" style="max-width:560px"><div class="ring"></div><button class="mod m4" onclick="enterPublic()">FOLLOW-UP</button><button class="mod m2" onclick="oneTapStaffFromOrbit()">STAFF</button><div class="center"><div><strong>LOGIN</strong><span>One-Tap Demo Access</span></div></div></div></div>
+<div id="home" style="display:none">
 <div class="hero">
 <h2>RA 11982 Follow-Up Assistant</h2>
 <p>Check your status, understand the update, review follow-up history, or contact OSCA.</p>
@@ -144,16 +145,16 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 </main>
 </div>
 <script>
+function enterPublic(){document.getElementById('loginOrbit').style.display='none';document.getElementById('home').style.display='block'}
+function oneTapStaffFromOrbit(){document.getElementById('loginOrbit').style.display='none';document.getElementById('home').style.display='none';document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('staffPanel').classList.add('active');document.getElementById('staffId').value='DEMO STAFF';document.getElementById('staffPin').value='11982';staffLogin()}
 function openPanel(id){
  document.getElementById('home').style.display='none';
  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
  document.getElementById(id).classList.add('active');
  window.scrollTo({top:0,behavior:'smooth'});
 }
-function goHome(){
- document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
- document.getElementById('home').style.display='block';
-}
+function goHome(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('home').style.display='block';document.getElementById('loginOrbit').style.display='none'}
+function goLogin(){document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));document.getElementById('home').style.display='none';document.getElementById('loginOrbit').style.display='block'}
 
 const STORE='osca11982_demo_records';
 function getRecords(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}}
