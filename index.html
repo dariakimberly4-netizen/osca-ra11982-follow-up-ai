@@ -109,7 +109,7 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 <p class="small">Demo staff workspace. Do not place real applicant data in this public GitHub version.</p>
 <label>Staff ID</label><input id="staffId" placeholder="OSCA Staff ID">
 <label>Demo PIN</label><input id="staffPin" type="password" placeholder="Enter PIN">
-<div class="actions"><button class="btn primary" onclick="staffLogin()">Login</button></div>
+<div class="actions"><button class="btn primary" onclick="staffLogin()">Login</button><button class="btn secondary" onclick="demoOneTap()">⚡ One-Tap Demo Login</button></div>
 <div id="loginMsg" class="status"></div>
 </div>
 <div class="card" id="staffWorkspace" style="display:none">
@@ -157,6 +157,7 @@ function goHome(){
 
 const STORE='osca11982_demo_records';
 function getRecords(){try{return JSON.parse(localStorage.getItem(STORE)||'[]')}catch(e){return[]}}
+function demoOneTap(){document.getElementById('staffId').value='DEMO STAFF';document.getElementById('staffPin').value='11982';staffLogin()}
 function staffLogin(){
  const id=document.getElementById('staffId').value.trim(),pin=document.getElementById('staffPin').value;
  const m=document.getElementById('loginMsg');m.classList.add('show');
