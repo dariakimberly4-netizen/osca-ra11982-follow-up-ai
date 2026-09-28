@@ -39,7 +39,7 @@ label{display:block;font-weight:700;margin:12px 0 6px}input,select,textarea{widt
 </header>
 <main>
 <section class="shell">
-<div id="loginOrbit" class="hero"><h2>OSCA RA 11982</h2><p>Choose your demo access.</p><div class="orbit loginOnly"><div class="ring"></div><button class="mod loginFollow" onclick="enterPublic()">FOLLOW-UP</button><button class="mod loginStaff" onclick="oneTapStaffFromOrbit()">STAFF</button><div class="center"><div><strong>LOGIN</strong><span>One-Tap Demo Access</span></div></div></div></div>
+<div id="loginOrbit" class="hero"><h2>LOGIN</h2><p>OSCA RA 11982 Follow-Up AI Demo</p><div class="orbit loginOnly"><div class="ring"></div><button class="mod loginFollow" onclick="enterPublic()">FOLLOW-UP</button><button class="mod loginStaff" onclick="oneTapStaffFromOrbit()">STAFF</button><div class="center"><div><strong>LOGIN FIRST</strong><span>Choose Access</span></div></div></div></div>
 <div id="home" style="display:none">
 <div class="hero">
 <h2>RA 11982 Follow-Up Assistant</h2>
@@ -199,6 +199,7 @@ function answerAI(){
  else if(q.includes('kulang')||q.includes('missing')||q.includes('document')) a='If the status says “For Completion” or indicates a missing requirement, please coordinate directly with OSCA staff so they can tell you exactly what needs to be corrected or submitted.';
  box.innerHTML='<b>AI Follow-Up Assistant:</b><br><br>'+a;
 }
+if(!sessionStorage.getItem('osca_rev_8469')){sessionStorage.setItem('osca_rev_8469','1');if(location.search){history.replaceState({},'',location.pathname);location.reload();}}
 </script>
 </body>
 </html>
