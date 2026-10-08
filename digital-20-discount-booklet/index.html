@@ -1,161 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#123f38" />
-  <title>Digital Senior Citizen Booklet | 20% Discount Guide</title>
-  <style>
-    :root{
-      --green:#123f38;
-      --green2:#1e5a4f;
-      --cream:#fbf7ed;
-      --gold:#b6974d;
-      --ink:#1e2926;
-      --muted:#66736e;
-      --white:#ffffff;
-      --line:#e8dfcd;
-      --danger:#8a2b2b;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--cream);color:var(--ink);font-size:18px;line-height:1.55}
-    a{color:inherit}
-    button,input{font:inherit}
-    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px 18px;background:linear-gradient(180deg,#fffdf7 0%,#f6efdf 100%)}
-    .hero-card{width:min(760px,100%);text-align:center;border:1px solid var(--line);background:rgba(255,255,255,.88);border-radius:28px;padding:44px 24px;box-shadow:0 18px 60px rgba(39,53,49,.10)}
-    .eyebrow{font-size:.86rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green2);font-weight:700}
-    .twenty{font-size:clamp(5rem,21vw,10rem);font-weight:900;line-height:.85;color:var(--green);letter-spacing:-.08em;margin:24px 0 10px}
-    h1{font-size:clamp(2rem,7vw,4rem);line-height:1.03;margin:0;color:var(--green)}
-    .hero p{max-width:590px;margin:20px auto;color:var(--muted)}
-    .primary{display:inline-flex;align-items:center;justify-content:center;min-height:60px;padding:0 28px;border:none;border-radius:18px;background:var(--green);color:white;font-weight:800;text-decoration:none;box-shadow:0 10px 24px rgba(18,63,56,.20)}
-    .notice{margin:24px auto 0;max-width:620px;padding:16px 18px;border-radius:16px;background:#fff8e8;border:1px solid #ead7a4;font-size:.94rem;text-align:left}
-    nav{position:sticky;top:0;z-index:20;background:rgba(251,247,237,.95);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;padding:10px 12px}
-    nav a{display:inline-block;padding:10px 14px;margin-right:6px;border-radius:999px;text-decoration:none;font-weight:700;color:var(--green)}
-    nav a:hover,nav a:focus{background:#e9efe9;outline:none}
-    main{max-width:980px;margin:auto;padding:34px 18px 80px}
-    section{scroll-margin-top:90px;margin:0 0 46px}
-    h2{font-size:clamp(1.7rem,5vw,2.8rem);line-height:1.1;color:var(--green);margin:0 0 18px}
-    h3{color:var(--green);margin-bottom:8px}
-    .lead{font-size:1.12rem;color:var(--muted)}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-    .card{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:0 8px 22px rgba(39,53,49,.06)}
-    .icon{font-size:2rem;margin-bottom:8px}
-    .card p{margin-bottom:0}
-    .steps{counter-reset:step;display:grid;gap:14px}
-    .step{counter-increment:step;background:white;border:1px solid var(--line);border-radius:18px;padding:18px 18px 18px 72px;position:relative}
-    .step:before{content:counter(step);position:absolute;left:18px;top:18px;width:38px;height:38px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-weight:900}
-    details{background:white;border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:10px}
-    summary{cursor:pointer;font-weight:800;color:var(--green)}
-    details p{margin:12px 0 2px}
-    .calc{background:var(--green);color:white;border-radius:24px;padding:24px}
-    .calc h2{color:white}
-    .calc label{display:block;font-weight:800;margin-bottom:8px}
-    .calc input{width:100%;min-height:56px;border-radius:14px;border:2px solid transparent;padding:0 16px;font-size:1.2rem;margin-bottom:12px}
-    .calc button{width:100%;min-height:58px;border:0;border-radius:14px;background:#f0d58d;color:#21352f;font-weight:900;cursor:pointer}
-    .result{margin-top:16px;padding:18px;border-radius:16px;background:rgba(255,255,255,.11)}
-    .result strong{font-size:1.45rem}
-    .warning{background:#fff1f1;border:1px solid #e7c4c4;border-left:5px solid var(--danger);padding:18px;border-radius:14px}
-    .source{font-size:.92rem;color:var(--muted)}
-    footer{text-align:center;padding:32px 18px 50px;color:var(--muted);border-top:1px solid var(--line)}
-    @media(max-width:680px){
-      body{font-size:17px}
-      .grid{grid-template-columns:1fr}
-      .hero-card{padding:34px 18px}
-      .twenty{margin-top:18px}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#163f36">
+<title>Digital Senior Citizen Booklet | 20% Discount</title>
+<style>
+:root{--green:#163f36;--cream:#f7f0df;--paper:#fffdf7;--gold:#b89a54;--ink:#1d2925;--muted:#65716c;--line:#dfd3bb}
+*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#d9d3c6;color:var(--ink);min-height:100vh;overflow:hidden}button{font:inherit}
+.app{min-height:100vh;display:flex;flex-direction:column}.topbar{height:58px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;background:var(--green);color:#fff;box-shadow:0 2px 12px #0002;z-index:10}.brand{font-size:15px;font-weight:800;letter-spacing:.05em}.counter{font-size:14px;font-weight:700;opacity:.9}
+.stage{flex:1;display:grid;place-items:center;padding:14px;min-height:0}.book{width:min(720px,100%);height:min(78vh,820px);position:relative;perspective:1500px}.page{position:absolute;inset:0;background:var(--paper);border:1px solid #d7ccb5;border-radius:10px 18px 18px 10px;box-shadow:0 18px 45px #0002,inset 18px 0 28px #8b6c3310;padding:clamp(24px,5vw,54px);overflow:auto;display:none;animation:turnIn .35s ease}.page.active{display:block}.page::-webkit-scrollbar{width:8px}.page::-webkit-scrollbar-thumb{background:#c8bea9;border-radius:10px}@keyframes turnIn{from{opacity:.25;transform:rotateY(-8deg) translateX(20px)}to{opacity:1;transform:none}}
+.page-no{position:absolute;bottom:16px;right:22px;color:#8c836f;font-size:13px}.chapter{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:900;margin-bottom:14px}h1,h2,h3{color:var(--green);margin-top:0}h1{font-size:clamp(34px,8vw,62px);line-height:.98}h2{font-size:clamp(28px,6vw,46px);line-height:1.05}h3{font-size:22px;margin-bottom:8px}p,li{font-size:clamp(17px,2.7vw,21px);line-height:1.55}.lead{font-size:clamp(20px,3.3vw,26px);color:#45544e}.big20{font-size:clamp(100px,28vw,190px);font-weight:1000;line-height:.8;color:var(--green);letter-spacing:-.08em;margin:25px 0}.cards{display:grid;grid-template-columns:1fr 1fr;gap:14px}.card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:17px}.icon{font-size:34px}.callout{border-left:6px solid var(--gold);background:#fff7df;border-radius:12px;padding:16px 18px;margin:18px 0}.steps{display:grid;gap:14px}.step{display:grid;grid-template-columns:48px 1fr;gap:14px;align-items:start}.num{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:#fff;font-size:20px;font-weight:900}.example{background:var(--green);color:#fff;border-radius:18px;padding:20px}.example h3{color:#f7dea0}.example p{margin:7px 0}.faq{border-bottom:1px solid var(--line);padding:13px 0}.faq strong{color:var(--green);font-size:18px}.cover{display:flex;flex-direction:column;justify-content:center;text-align:center;background:linear-gradient(145deg,#fffdf8,#f3ead6)}.cover .seal{width:92px;height:92px;border:2px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:0 auto 28px;color:var(--green);font-weight:900;font-size:30px}.cover .small{font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-weight:900}.cover h1{margin:10px auto 0;max-width:580px}.cover .sub{font-size:22px;color:#50605a;margin-top:18px}.backcover{display:flex;flex-direction:column;justify-content:center;text-align:center;background:var(--green);color:#fff}.backcover h2{color:#fff}.backcover .big20{color:#f2d995}.backcover p{color:#eef4f1}.controls{display:flex;gap:10px;padding:12px 14px 18px;justify-content:center;background:#d9d3c6}.btn{min-height:54px;border:0;border-radius:15px;padding:0 22px;font-weight:900;cursor:pointer}.prev{background:#f7f1e4;color:var(--green);border:1px solid #cbbf9f}.next{background:var(--green);color:#fff}.btn:disabled{opacity:.4;cursor:not-allowed}.open{margin:20px auto 0;background:var(--green);color:#fff;border:0;border-radius:16px;min-height:58px;padding:0 28px;font-size:19px;font-weight:900;cursor:pointer}
+@media(max-width:620px){.topbar{height:52px}.book{height:calc(100vh - 142px)}.stage{padding:8px}.page{border-radius:6px 14px 14px 6px;padding:26px 22px 42px}.cards{grid-template-columns:1fr}.controls{padding:8px 8px 10px}.btn{flex:1;padding:0 10px;min-height:50px}.page-no{bottom:10px;right:15px}.cover .seal{width:78px;height:78px}}
+@media(prefers-reduced-motion:reduce){.page{animation:none}}
+</style>
 </head>
 <body>
-  <header class="hero" id="home">
-    <div class="hero-card">
-      <div class="eyebrow">Digital Senior Citizen Booklet</div>
-      <div class="twenty">20%</div>
-      <h1>Know Your Senior Citizen Discount</h1>
-      <p>A simple, senior-friendly guide to the 20% discount and VAT exemption on qualified goods and services under Republic Act No. 9994.</p>
-      <a class="primary" href="#covered">Open the Guide</a>
-      <div class="notice"><strong>Important:</strong> The 20% discount applies only to qualified goods and services for the senior citizen’s exclusive use, enjoyment or availment. VAT exemption applies when the covered transaction is VAT-applicable.</div>
-    </div>
-  </header>
-
-  <nav aria-label="Booklet sections">
-    <a href="#covered">Covered</a>
-    <a href="#claim">How to Claim</a>
-    <a href="#calculator">Calculator</a>
-    <a href="#faq">FAQs</a>
-    <a href="#rights">Your Rights</a>
-  </nav>
-
-  <main>
-    <section id="covered">
-      <h2>Where can the 20% discount apply?</h2>
-      <p class="lead">RA 9994 covers specific goods and services. The transaction must be for the senior citizen’s own use or availment.</p>
-      <div class="grid">
-        <article class="card"><div class="icon">💊</div><h3>Medicines & Medical Supplies</h3><p>Qualified medicines and prescribed medical supplies, accessories and equipment covered by applicable rules.</p></article>
-        <article class="card"><div class="icon">🏥</div><h3>Private Medical & Dental Services</h3><p>Covered medical and dental services, diagnostic and laboratory tests, and qualified professional fees in private facilities.</p></article>
-        <article class="card"><div class="icon">🍽️</div><h3>Restaurants</h3><p>Qualified food, drinks and services for the senior citizen’s exclusive consumption or availment, subject to the implementing rules.</p></article>
-        <article class="card"><div class="icon">🚌</div><h3>Domestic Transportation</h3><p>Qualified fares for domestic land, air and sea transportation under applicable regulations.</p></article>
-        <article class="card"><div class="icon">🏨</div><h3>Hotels & Lodging</h3><p>Qualified room and lodging services in covered hotels and similar lodging establishments.</p></article>
-        <article class="card"><div class="icon">🎟️</div><h3>Recreation & Admission</h3><p>Qualified fees for covered recreation centers, theaters, cinemas, concert halls, museums, parks and similar places.</p></article>
-        <article class="card"><div class="icon">⚱️</div><h3>Funeral & Burial Services</h3><p>Qualified funeral and burial services for a deceased senior citizen, subject to the requirements in the implementing rules.</p></article>
-        <article class="card"><div class="icon">💳</div><h3>Credit Card Payments</h3><p>The 20% discount and VAT exemption may still apply to qualified purchases even when payment is made by credit card.</p></article>
-      </div>
-    </section>
-
-    <section id="claim">
-      <h2>How to claim your discount</h2>
-      <div class="steps">
-        <div class="step"><strong>Present proof of eligibility.</strong><br>Show your valid original OSCA-issued Senior Citizen ID or other proof accepted under current rules.</div>
-        <div class="step"><strong>Tell the establishment before payment.</strong><br>Ask to avail of the Senior Citizen discount for the qualified goods or services.</div>
-        <div class="step"><strong>Check the computation.</strong><br>Confirm that the applicable VAT exemption and 20% discount were correctly reflected on the bill or invoice.</div>
-        <div class="step"><strong>Keep your receipt.</strong><br>Keep the official receipt or invoice in case you need to verify the computation or raise a concern.</div>
-      </div>
-    </section>
-
-    <section class="calc" id="calculator">
-      <h2>Quick Discount Calculator</h2>
-      <p>This calculator is for a <strong>covered VATable transaction</strong> where the entered amount already includes 12% VAT. It removes VAT first, then applies the 20% senior citizen discount.</p>
-      <label for="bill">VAT-inclusive bill amount (₱)</label>
-      <input id="bill" type="number" min="0" step="0.01" inputmode="decimal" placeholder="Example: 1,120.00" />
-      <button type="button" onclick="calculateDiscount()">Calculate</button>
-      <div class="result" id="result" aria-live="polite">Enter an amount above.</div>
-    </section>
-
-    <section id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <details><summary>Is every purchase automatically entitled to 20% off?</summary><p>No. The law lists covered goods and services, and the benefit is generally for the senior citizen’s exclusive use, enjoyment or availment.</p></details>
-      <details><summary>Is the 20% discount computed before or after VAT?</summary><p>For a covered VATable transaction, the senior citizen is VAT-exempt. The VAT is removed from the VAT-inclusive selling price first, and the 20% discount is applied to the VAT-exempt amount.</p></details>
-      <details><summary>Can I still receive the discount when paying by credit card?</summary><p>Yes, for qualified purchases. The implementing rules state that the 20% discount and VAT exemption also apply to purchases paid through credit cards.</p></details>
-      <details><summary>What if an item is already on promotion?</summary><p>For promotional discounts covered by the implementing rules, the senior citizen may generally avail of either the promotional discount or the statutory senior citizen discount, whichever is higher and more favorable, subject to applicable rules.</p></details>
-      <details><summary>Can I combine Senior Citizen and PWD discounts?</summary><p>The two statutory discounts should not be stacked for the same transaction. A person who qualifies under both should avail of the applicable discount allowed for that transaction.</p></details>
-      <details><summary>Does the Senior Citizen ID work outside my city?</summary><p>The RA 9994 implementing rules provide that a valid original OSCA-issued Senior Citizen ID shall be honored nationwide.</p></details>
-    </section>
-
-    <section id="rights">
-      <h2>Know your rights</h2>
-      <div class="warning"><strong>If you believe a qualified discount was incorrectly denied:</strong> politely ask the establishment to review the Senior Citizen discount rules and request an itemized receipt or invoice. You may then bring the concern and supporting documents to the appropriate OSCA or government office for guidance.</div>
-      <p class="source"><strong>Legal basis:</strong> Republic Act No. 9994 (Expanded Senior Citizens Act of 2010) and its Implementing Rules and Regulations. This digital booklet is an informational guide and does not replace official laws, regulations, circulars or agency guidance.</p>
-    </section>
-  </main>
-
-  <footer>
-    <strong>Digital Senior Citizen Booklet</strong><br>
-    20% Discount Guide • Senior-friendly • Mobile-first
-  </footer>
-
-  <script>
-    function money(n){return new Intl.NumberFormat('en-PH',{style:'currency',currency:'PHP'}).format(n)}
-    function calculateDiscount(){
-      const gross=parseFloat(document.getElementById('bill').value);
-      const out=document.getElementById('result');
-      if(!Number.isFinite(gross)||gross<=0){out.textContent='Please enter a valid bill amount.';return;}
-      const vatExclusive=gross/1.12;
-      const vatRemoved=gross-vatExclusive;
-      const discount=vatExclusive*0.20;
-      const finalAmount=vatExclusive-discount;
-      out.innerHTML=`VAT removed: <strong>${money(vatRemoved)}</strong><br>20% discount: <strong>${money(discount)}</strong><br><br>Estimated amount to pay: <strong>${money(finalAmount)}</strong>`;
-    }
-  </script>
+<div class="app">
+<header class="topbar"><div class="brand">DIGITAL SENIOR CITIZEN BOOKLET</div><div class="counter" id="counter">Cover</div></header>
+<main class="stage"><div class="book" id="book">
+<section class="page cover active">
+<div class="seal">20%</div><div class="small">Senior Citizen Benefit Guide</div><h1>Your 20% Discount Booklet</h1><p class="sub">A simple digital booklet on the Senior Citizen 20% discount and VAT exemption for qualified transactions.</p><button class="open" onclick="goTo(1)">Open Booklet →</button><div class="page-no">Cover</div>
+</section>
+<section class="page"><div class="chapter">Page 1 • Your Benefit</div><div class="big20">20%</div><h2>Know what your Senior Citizen benefit means.</h2><p class="lead">Under Republic Act No. 9994, qualified senior citizens may receive a <strong>20% discount</strong> and <strong>VAT exemption, when applicable</strong>, on covered goods and services for their own use or availment.</p><div class="callout"><strong>Remember:</strong> The 20% discount does not automatically apply to every purchase. It applies only to goods and services covered by law and current implementing rules.</div><div class="page-no">1</div></section>
+<section class="page"><div class="chapter">Page 2 • Covered Transactions</div><h2>Where can the 20% discount apply?</h2><div class="cards"><div class="card"><div class="icon">💊</div><h3>Medicines</h3><p>Qualified medicines and covered medical supplies.</p></div><div class="card"><div class="icon">🏥</div><h3>Medical & Dental</h3><p>Qualified private medical, dental, diagnostic and laboratory services.</p></div><div class="card"><div class="icon">🍽️</div><h3>Restaurants</h3><p>Qualified food and beverages for the senior citizen's own consumption.</p></div><div class="card"><div class="icon">🚌</div><h3>Transportation</h3><p>Qualified domestic land, sea and air transportation fares.</p></div><div class="card"><div class="icon">🏨</div><h3>Hotels</h3><p>Qualified lodging services in covered establishments.</p></div><div class="card"><div class="icon">🎟️</div><h3>Recreation</h3><p>Qualified admission and recreation services covered by law.</p></div></div><div class="page-no">2</div></section>
+<section class="page"><div class="chapter">Page 3 • Restaurants</div><h2>Eating out?</h2><p>For qualified restaurant transactions, the discount applies to the portion attributable to the senior citizen's own food, drinks and covered services.</p><div class="callout"><strong>Dining with family?</strong> The entire table bill is not automatically discounted. The establishment determines the senior citizen's qualified share under applicable rules.</div><h3>Good practice</h3><ul><li>Present your Senior Citizen ID before payment.</li><li>Ask for an itemized bill or receipt.</li><li>Check that the discount is reflected correctly.</li></ul><div class="page-no">3</div></section>
+<section class="page"><div class="chapter">Page 4 • Medicines & Health</div><h2>For medicines and health services</h2><p>Qualified medicines, medical supplies, diagnostic services, laboratory tests, medical and dental services, and certain professional fees may be covered, subject to current rules and documentation requirements.</p><div class="cards"><div class="card"><div class="icon">💊</div><h3>Medicines</h3><p>Bring the required prescription or documents when applicable.</p></div><div class="card"><div class="icon">🧪</div><h3>Laboratory</h3><p>Ask whether the service is covered before payment.</p></div><div class="card"><div class="icon">👩‍⚕️</div><h3>Professional Fees</h3><p>Qualified fees may be covered subject to law and rules.</p></div><div class="card"><div class="icon">🪪</div><h3>ID</h3><p>Keep your valid Senior Citizen ID ready for verification.</p></div></div><div class="page-no">4</div></section>
+<section class="page"><div class="chapter">Page 5 • Travel & Lodging</div><h2>Going somewhere?</h2><p>The 20% discount may apply to qualified domestic transportation, lodging and recreation services covered by RA 9994 and its implementing rules.</p><div class="cards"><div class="card"><div class="icon">🚌</div><h3>Land</h3><p>Qualified domestic public transportation fares.</p></div><div class="card"><div class="icon">✈️</div><h3>Air</h3><p>Qualified domestic air transportation fares.</p></div><div class="card"><div class="icon">⛴️</div><h3>Sea</h3><p>Qualified domestic sea transportation fares.</p></div><div class="card"><div class="icon">🏨</div><h3>Lodging</h3><p>Qualified hotel and similar lodging services.</p></div></div><div class="page-no">5</div></section>
+<section class="page"><div class="chapter">Page 6 • How to Claim</div><h2>Four simple steps</h2><div class="steps"><div class="step"><div class="num">1</div><div><h3>Present your ID</h3><p>Show a valid Senior Citizen ID or other proof accepted under current rules.</p></div></div><div class="step"><div class="num">2</div><div><h3>Ask before paying</h3><p>Tell the establishment you are availing of your Senior Citizen benefit.</p></div></div><div class="step"><div class="num">3</div><div><h3>Check the bill</h3><p>Make sure the applicable VAT exemption and 20% discount are reflected.</p></div></div><div class="step"><div class="num">4</div><div><h3>Keep your receipt</h3><p>Save your official receipt or invoice in case you need to verify the transaction.</p></div></div></div><div class="page-no">6</div></section>
+<section class="page"><div class="chapter">Page 7 • Example</div><h2>How the discount may be computed</h2><p>For a covered VATable transaction where the displayed price already includes 12% VAT, the VAT is removed first. The 20% discount is then applied to the VAT-exempt amount.</p><div class="example"><h3>Example only</h3><p>VAT-inclusive price: <strong>₱1,120.00</strong></p><p>VAT-exempt base: <strong>₱1,000.00</strong></p><p>20% discount: <strong>₱200.00</strong></p><p style="font-size:25px;margin-top:14px">Estimated amount to pay: <strong>₱800.00</strong></p></div><div class="callout"><strong>Important:</strong> Actual computation can depend on the type of transaction and current regulations.</div><div class="page-no">7</div></section>
+<section class="page"><div class="chapter">Page 8 • Quick Questions</div><h2>Frequently asked questions</h2><div class="faq"><strong>Can I use my discount when paying by credit card?</strong><p>Qualified purchases remain subject to the Senior Citizen benefit even when payment is made by credit card, subject to current rules.</p></div><div class="faq"><strong>What if an item is already on promotion?</strong><p>Where applicable, the senior citizen generally avails of the more favorable discount under the current rules.</p></div><div class="faq"><strong>Can I combine Senior Citizen and PWD discounts?</strong><p>The two statutory discounts are not stacked on the same transaction.</p></div><div class="faq"><strong>Can I use my OSCA ID outside my city?</strong><p>A valid original OSCA-issued Senior Citizen ID is generally honored nationwide under the implementing rules.</p></div><div class="page-no">8</div></section>
+<section class="page backcover"><div class="small">Keep this guide handy</div><div class="big20">20%</div><h2>Know your benefit. Check your receipt.</h2><p>Legal basis: Republic Act No. 9994 and its Implementing Rules and Regulations.</p><p style="font-size:15px;opacity:.8">This booklet is an informational guide and does not replace official laws, regulations, circulars, or agency guidance.</p><div class="page-no" style="color:#ddd">Back Cover</div></section>
+</div></main>
+<div class="controls"><button class="btn prev" id="prev" onclick="change(-1)">← Previous Page</button><button class="btn next" id="next" onclick="change(1)">Next Page →</button></div>
+</div>
+<script>
+const pages=[...document.querySelectorAll('.page')];let current=0;function render(){pages.forEach((p,i)=>p.classList.toggle('active',i===current));document.getElementById('prev').disabled=current===0;document.getElementById('next').disabled=current===pages.length-1;document.getElementById('counter').textContent=current===0?'Cover':current===pages.length-1?'Back Cover':`Page ${current} of ${pages.length-2}`;pages[current].scrollTop=0}function change(d){current=Math.max(0,Math.min(pages.length-1,current+d));render()}function goTo(i){current=i;render()}document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')change(1);if(e.key==='ArrowLeft')change(-1)});let sx=0;document.getElementById('book').addEventListener('touchstart',e=>sx=e.changedTouches[0].clientX,{passive:true});document.getElementById('book').addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>55)change(dx<0?1:-1)},{passive:true});render();
+</script>
 </body>
 </html>
